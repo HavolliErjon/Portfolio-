@@ -7,7 +7,6 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
 
- 
 <!-- Open Graph Meta Tags -->
 <meta name="description" content="Benvenuti nel portfolio di Havolli Erjon. Scopri i miei progetti di programmazione web, app e soluzioni digitali.">
 <meta property="og:title" content="Portfolio Havolli Erjon">
@@ -18,26 +17,216 @@
 <meta property="og:image:width" content="300">
 <meta property="og:image:height" content="300px">
 
-  <!-- Favicons -->
-  <link rel="icon" href="Assets/img/favicon-32x32.png" type="image/x-icon">
+<!-- Favicons -->
+<link rel="icon" href="Assets/img/favicon-32x32.png" type="image/x-icon">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<!-- Link al file CSS di Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+<!-- Link al file CSS di Boxicons per le icone -->
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+<!-- Main CSS File -->
+<link rel="stylesheet" href="Assets/css/main.css">
+
+<!-- Libreria EmailJS -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<style>
 
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+@media (max-width: 768px) {
+  .hero {
+    position: relative; /* Assicurati che il contenitore del testo sia posizionato relativamente */
+    z-index: 10; /* Porta il contenuto sopra l'immagine */
+  }
 
+  .hero h2 {
+    font-size: 28px;
+    position: relative; /* Posiziona il titolo rispetto al suo contenitore */
+    z-index: 20; /* Assicurati che il titolo sia sopra l'immagine */
+  }
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  .hero p {
+    font-size: 18px;
+    position: relative; /* Posiziona il testo rispetto al suo contenitore */
+    z-index: 20; /* Assicurati che il testo sia sopra l'immagine */
+  }
 
-  
-  <!-- Main CSS File -->
-  <link rel="stylesheet" href="Assets/css/main.css">
+  .hero img {
+    position: absolute; /* L'immagine sarà in background */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+    z-index: 1; /* Assicurati che l'immagine sia sotto il testo */
+  }
+}
+  @media (max-width: 480px) {
+    body {
+        background-size: cover;
+        background-position: top center;
+    }
+}
+  @media only screen and (max-width: 768px) {
+    
+    
+    /* HEADER */
+    #header {
+      padding: 10px 20px; /* Ridurre il padding per schermi piccoli */
+    }
 
-   <!-- Libreria EmailJS -->
-   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  
+    #navmenu {
+      display: block;
+      text-align: center;
+    }
+
+    #navmenu ul {
+      padding: 0;
+    }
+
+    #navmenu ul li {
+      display: block;
+      margin: 10px 0;
+    }
+
+    #header .header-social-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    /* SEZIONE HERO (Immagine principale + testo) */
+    #sezione .hero {
+      padding: 60px 0; /* Ridurre il padding per schermi piccoli */
+      min-height: calc(100vh - 82px); /* Mantieni l'altezza minima della sezione */
+    }
+
+    #sezione .hero img {
+      width: 100%; /* L'immagine di sfondo deve coprire tutta la larghezza */
+      height: 100%; /* L'immagine deve occupare tutta l'altezza disponibile */
+      object-fit: cover; /* Mantieni l'immagine che copre lo spazio senza deformazioni */
+      opacity: 0.6; /* Aggiungere una leggera opacità all'immagine */
+    }
+
+    #sezione .container h2 {
+      font-size: 28px; /* Ridurre la dimensione del testo */
+    }
+
+    #sezione .container p {
+      font-size: 18px; /* Ridurre il testo */
+    }
+
+    /* SEZIONE "Chi Sono" */
+    #chisono .container .row {
+      flex-direction: column; /* Disposizione verticale */
+      text-align: center;
+    }
+
+    #chisono .col-lg-3 img {
+      width: 80%; /* Immagine ridotta */
+      margin-bottom: 20px;
+    }
+
+    #chisono .content h2 {
+      font-size: 26px;
+    }
+
+    #chisono .content p {
+      font-size: 16px; /* Ridurre la dimensione del testo */
+    }
+
+    #chisono .container ul {
+      padding-left: 20px;
+    }
+
+    /* SEZIONE "Progetti" */
+    #progetti .progetti-container {
+      flex-direction: column; /* Impostazione dei progetti in colonna */
+      gap: 10px; /* Spazio tra i progetti */
+    }
+
+    .progetto1, .progetto2 {
+      flex: 1 1 100%; /* I progetti occupano tutta la larghezza disponibile */
+      max-width: 100%;
+    }
+
+    .progetto1 .progetto-figure, .progetto2 .progetto-figure {
+      padding-top: 75%; /* Ridurre l'aspect ratio per schermi più piccoli */
+    }
+
+    .progetto1 .progetto-figure img, .progetto2 .progetto-figure img {
+      object-fit: contain; /* Impedisce che le immagini vengano tagliate */
+      width: 100%;
+      height: auto;
+    }
+
+    /* Sezione Contatti */
+    #contatti {
+      margin-bottom: 10px;
+      padding: 15px; /* Aggiungi un po' di padding per i dispositivi mobili */
+    }
+
+    #contatti h2 {
+      font-size: 24px; /* Riduci la dimensione del titolo */
+      margin-bottom: 20px;
+    }
+
+    .php-email-form {
+      padding: 20px; /* Riduci il padding per adattarsi meglio */
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Ridurre la dimensione degli input e textarea */
+    .php-email-form input[type="text"],
+    .php-email-form input[type="email"],
+    .php-email-form textarea {
+      font-size: 12px; /* Ridurre la dimensione del testo */
+      padding: 8px 12px; /* Ridurre il padding */
+      border-radius: 5px; /* Aggiungi un leggero arrotondamento */
+    }
+
+    .php-email-form input[type="text"]:focus,
+    .php-email-form input[type="email"]:focus,
+    .php-email-form textarea:focus {
+      border-color: var(--accent-color);
+    }
+
+    /* Bottone submit */
+    .php-email-form button[type="submit"] {
+      font-size: 12px; /* Ridurre la dimensione del testo del bottone */
+      padding: 10px 20px; /* Ridurre la dimensione del bottone */
+      border-radius: 30px; /* Bottone arrotondato */
+      margin-top: 20px; /* Spazio sopra il bottone */
+    }
+
+    .php-email-form button[type="submit"]:hover {
+      background: color-mix(in srgb, var(--accent-color), transparent 25%);
+    }
+
+    /* Per la sezione footer, aggiustamenti per dispositivi mobili */
+    .footer .social {
+      gap: 10px; /* Spazio tra le icone */
+    }
+
+    .footer .social-links a {
+      width: 35px;
+      height: 35px;
+      font-size: 14px;
+    }
+
+    .footer .social-links a:hover {
+      color: var(--accent-color);
+      border-color: var(--accent-color);
+    }
+  }
+</style>
 </head>
 
     <body class="index-page">
@@ -51,7 +240,7 @@
               <nav id="navmenu" class="navmenu">
                   <ul>
                       <li><a href="index.html" class="active">Home</a></li>
-                      <li><a href="#about">Chi sono</a></li>
+                      <li><a href="#chisono">Chi sono</a></li>
                       <li><a href="curriculum.html">Curriculum vitae</a></li>
                       <li><a href="#progetti">Progetti</a></li>
                       <li><a href="#contatti">Contatti</a></li>
@@ -72,14 +261,14 @@
     <!-- Sezione principale -->
     <section id="sezione" class="hero sections ">
 
-      <img src="Assets/img/Sfondo.jpg" alt="" data-aos="fade-in">
+      <img src="Assets/img/Sfondo2.jpg" alt="">
 
-      <div class="container text-center" data-aos="zoom-out" data-aos-delay="100">
+      <div class="container text-center" >
         <div class="row justify-content-center">
           <div class="col-lg-8">
             <h2>Erjon Havolli</h2>
             <p>Full Stack Developer</p>
-            <a href="#about" class="btn-get-started">Chi sono</a>
+            <a href="#chisono" class="btn-get-started">Chi sono</a>
           </div>
         </div>
       </div>
@@ -89,16 +278,16 @@
 
 
 
-<!-- About Section -->
-<section id="about" class="about section">
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
+<!-- Sezione Chi Sono -->
+<section id="chisono" class="chisono section">
+  <div class="container">
     <div class="row gy-4 justify-content-center align-items-center">
       <div class="col-lg-3">
        
         <img src="Assets/img/Immagine.jpg" class="img-fluid" alt="Havolli Erjon">
       </div>
       <div class="col-lg-6 content">
-        <!-- Introduzione -->
+        
         <h2>Full Stack Developer</h2>
         <p class="fst-italic py-3">
           Ciao, mi chiamo Erjon, ho 27 anni e sono un ragazzo motivato e dinamico, con una forte determinazione e un costante desiderio di apprendere. Mi sono appassionato alla programmazione iniziando il mio percorso con FreeCodeCamp, una piattaforma che mi ha permesso di scoprire il mondo del coding e di acquisire le prime competenze in HTML e CSS. Ho iniziato il mio percorso con il primo step del Web Design per creare una solida base nelle tecniche di progettazione e sviluppo di siti web.
@@ -108,9 +297,7 @@
       </div>
     </div>
   </div>
-  
-  <!-- Sezione Educazione e Competenze -->
-  <div class="container" data-aos="fade-up" data-aos-delay="200">
+  <div class="container">
     <div class="row">
       <div class="col-lg-12">
         <h3>Competenze e Formazione</h3>
@@ -144,7 +331,7 @@
 
   <div class="progetti-container">
     <!-- Progetto 1 -->
-    <div class="progetto">
+    <div class="progetto1">
       <figure class="progetto-figure">
         <img src="Assets/img/Progetto nr.1.jpeg" alt="Progetto 1">
         <figcaption class="progetto-description">
@@ -155,7 +342,7 @@
     </div>
 
     <!-- Progetto 2 -->
-    <div class="progetto">
+    <div class="progetto2">
       <figure class="progetto-figure">
         <img src="Assets/img/Progetto nr.2.jpeg" alt="Progetto 2">
         <figcaption class="progetto-description">
@@ -174,11 +361,11 @@
 
        <!--Contatti -->
         
-        <div id="contatti" class="container section-title" data-aos="fade-up">
+        <div id="contatti" class="container section-title">
           <h2>Contattami</h2>
-        </div>
+       
         
-        <div id="contatti" class="container" data-aos="fade-up" data-aos-delay="100">
+        <div id="contatti" class="container">
           <form id="contact-form" class="php-email-form">
             <div class="row gy-4">
         
@@ -208,14 +395,20 @@
             </div>
   
 
-       <script src="Assets/js/script.js"></script>
+     <script src="Assets/js/script.js"></script>
 
     <!-- Social link -->
+    <footer id="footer" class="footer light-background">
     <section class="social">
       <div class="icon">
           <a href="https://www.linkedin.com/feed/"><i class='bx bxl-linkedin' ></i></a>
           <a href="https://github.com/"><i class='bx bxl-github' ></i></a>
-      
       </div>
+      </section>
+        <div class="mt-20">
+          <p>© Copyright <strong>Erjon Havolli.</strong>Tutti i diritti riservati.<br></p>
+        </div>
+      </footer> 
+    </div>
     </body>
 </html>
