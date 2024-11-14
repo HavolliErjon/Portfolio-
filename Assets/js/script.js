@@ -32,3 +32,16 @@ document.getElementById("contact-form").addEventListener("submit", function(even
             alert("C'è stato un errore nell'invio del messaggio. Riprova più tardi.");
         });
 });
+
+
+        // Attendere che il documento sia completamente caricato
+        document.addEventListener("DOMContentLoaded", function () {
+            const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+            const navMenu = document.querySelector('.navmenu');
+    
+            // Aggiungi un event listener per clic sull'icona hamburger
+            mobileNavToggle.addEventListener('click', function () {
+                navMenu.classList.toggle('mobile-nav-active');  // Alterna la classe per il menu mobile
+            });
+        });
+        

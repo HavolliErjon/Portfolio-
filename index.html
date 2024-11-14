@@ -36,208 +36,22 @@
 
 <!-- Libreria EmailJS -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<style>
-
-
-@media (max-width: 768px) {
-  .hero {
-    position: relative; /* Assicurati che il contenitore del testo sia posizionato relativamente */
-    z-index: 10; /* Porta il contenuto sopra l'immagine */
-  }
-
-  .hero h2 {
-    font-size: 28px;
-    position: relative; /* Posiziona il titolo rispetto al suo contenitore */
-    z-index: 20; /* Assicurati che il titolo sia sopra l'immagine */
-  }
-
-  .hero p {
-    font-size: 18px;
-    position: relative; /* Posiziona il testo rispetto al suo contenitore */
-    z-index: 20; /* Assicurati che il testo sia sopra l'immagine */
-  }
-
-  .hero img {
-    position: absolute; /* L'immagine sarà in background */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.6;
-    z-index: 1; /* Assicurati che l'immagine sia sotto il testo */
-  }
-}
-  @media (max-width: 480px) {
-    body {
-        background-size: cover;
-        background-position: top center;
-    }
-}
-  @media only screen and (max-width: 768px) {
-    
-    
-    /* HEADER */
-    #header {
-      padding: 10px 20px; /* Ridurre il padding per schermi piccoli */
-    }
-
-    #navmenu {
-      display: block;
-      text-align: center;
-    }
-
-    #navmenu ul {
-      padding: 0;
-    }
-
-    #navmenu ul li {
-      display: block;
-      margin: 10px 0;
-    }
-
-    #header .header-social-links {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    /* SEZIONE HERO (Immagine principale + testo) */
-    #sezione .hero {
-      padding: 60px 0; /* Ridurre il padding per schermi piccoli */
-      min-height: calc(100vh - 82px); /* Mantieni l'altezza minima della sezione */
-    }
-
-    #sezione .hero img {
-      width: 100%; /* L'immagine di sfondo deve coprire tutta la larghezza */
-      height: 100%; /* L'immagine deve occupare tutta l'altezza disponibile */
-      object-fit: cover; /* Mantieni l'immagine che copre lo spazio senza deformazioni */
-      opacity: 0.6; /* Aggiungere una leggera opacità all'immagine */
-    }
-
-    #sezione .container h2 {
-      font-size: 28px; /* Ridurre la dimensione del testo */
-    }
-
-    #sezione .container p {
-      font-size: 18px; /* Ridurre il testo */
-    }
-
-    /* SEZIONE "Chi Sono" */
-    #chisono .container .row {
-      flex-direction: column; /* Disposizione verticale */
-      text-align: center;
-    }
-
-    #chisono .col-lg-3 img {
-      width: 80%; /* Immagine ridotta */
-      margin-bottom: 20px;
-    }
-
-    #chisono .content h2 {
-      font-size: 26px;
-    }
-
-    #chisono .content p {
-      font-size: 16px; /* Ridurre la dimensione del testo */
-    }
-
-    #chisono .container ul {
-      padding-left: 20px;
-    }
-
-    /* SEZIONE "Progetti" */
-    #progetti .progetti-container {
-      flex-direction: column; /* Impostazione dei progetti in colonna */
-      gap: 10px; /* Spazio tra i progetti */
-    }
-
-    .progetto1, .progetto2 {
-      flex: 1 1 100%; /* I progetti occupano tutta la larghezza disponibile */
-      max-width: 100%;
-    }
-
-    .progetto1 .progetto-figure, .progetto2 .progetto-figure {
-      padding-top: 75%; /* Ridurre l'aspect ratio per schermi più piccoli */
-    }
-
-    .progetto1 .progetto-figure img, .progetto2 .progetto-figure img {
-      object-fit: contain; /* Impedisce che le immagini vengano tagliate */
-      width: 100%;
-      height: auto;
-    }
-
-    /* Sezione Contatti */
-    #contatti {
-      margin-bottom: 10px;
-      padding: 15px; /* Aggiungi un po' di padding per i dispositivi mobili */
-    }
-
-    #contatti h2 {
-      font-size: 24px; /* Riduci la dimensione del titolo */
-      margin-bottom: 20px;
-    }
-
-    .php-email-form {
-      padding: 20px; /* Riduci il padding per adattarsi meglio */
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Ridurre la dimensione degli input e textarea */
-    .php-email-form input[type="text"],
-    .php-email-form input[type="email"],
-    .php-email-form textarea {
-      font-size: 12px; /* Ridurre la dimensione del testo */
-      padding: 8px 12px; /* Ridurre il padding */
-      border-radius: 5px; /* Aggiungi un leggero arrotondamento */
-    }
-
-    .php-email-form input[type="text"]:focus,
-    .php-email-form input[type="email"]:focus,
-    .php-email-form textarea:focus {
-      border-color: var(--accent-color);
-    }
-
-    /* Bottone submit */
-    .php-email-form button[type="submit"] {
-      font-size: 12px; /* Ridurre la dimensione del testo del bottone */
-      padding: 10px 20px; /* Ridurre la dimensione del bottone */
-      border-radius: 30px; /* Bottone arrotondato */
-      margin-top: 20px; /* Spazio sopra il bottone */
-    }
-
-    .php-email-form button[type="submit"]:hover {
-      background: color-mix(in srgb, var(--accent-color), transparent 25%);
-    }
-
-    /* Per la sezione footer, aggiustamenti per dispositivi mobili */
-    .footer .social {
-      gap: 10px; /* Spazio tra le icone */
-    }
-
-    .footer .social-links a {
-      width: 35px;
-      height: 35px;
-      font-size: 14px;
-    }
-
-    .footer .social-links a:hover {
-      color: var(--accent-color);
-      border-color: var(--accent-color);
-    }
-  }
-</style>
 </head>
 
     <body class="index-page">
-
+  
         <header id="header" class="header d-flex align-items-center light-background sticky-top">
           <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
             <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-            
               <h1 class="sitename">Erjon.</h1>
             </a>
+ 
+          
               <nav id="navmenu" class="navmenu">
+                      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+      <label for="menu-toggle" class="mobile-nav-toggle d-xl-none">
+        <i class="bi bi-list"></i> <!-- Icona hamburger -->
+      </label>
                   <ul>
                       <li><a href="index.html" class="active">Home</a></li>
                       <li><a href="#chisono">Chi sono</a></li>
@@ -245,6 +59,7 @@
                       <li><a href="#progetti">Progetti</a></li>
                       <li><a href="#contatti">Contatti</a></li>
                   </ul>
+                  <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
               </nav>
 
               <div class="header-social-links">
@@ -253,10 +68,6 @@
               </div>
           </div>
       </header>
-
-
-
-     
 
     <!-- Sezione principale -->
     <section id="sezione" class="hero sections ">
@@ -274,10 +85,6 @@
       </div>
         </section>
     
-
-
-
-
 <!-- Sezione Chi Sono -->
 <section id="chisono" class="chisono section">
   <div class="container">
@@ -321,13 +128,13 @@
 </section>
 
 
-
   <!-- Contenitore per i progetti -->
 <section id="progetti">
   <div class="container__title">
     <h2>Progetti</h2>
     <p>"Qui di seguito sono riportati alcuni dei progetti che ho realizzato."</p>
   </div>
+
 
   <div class="progetti-container">
     <!-- Progetto 1 -->
@@ -340,6 +147,7 @@
         </figcaption>
       </figure>
     </div>
+
 
     <!-- Progetto 2 -->
     <div class="progetto2">
@@ -354,20 +162,15 @@
   </div>
 </section>
 
-
-      
+<!--Contatti -->
         
-        
-
-       <!--Contatti -->
-        
-        <div id="contatti" class="container section-title">
+<div id="contatti-section" class="container section-title">
           <h2>Contattami</h2>
        
         
-        <div id="contatti" class="container">
-          <form id="contact-form" class="php-email-form">
-            <div class="row gy-4">
+ <div id="contatti" class="container">
+   <form id="contact-form" class="php-email-form">
+    <div class="row gy-4">
         
               <div class="col-md-6">
                 <label for="fullName" class="pb-2">Nome</label>
@@ -394,8 +197,9 @@
         
             </div>
   
-
+ <!-- Main JS File -->
      <script src="Assets/js/script.js"></script>
+     
 
     <!-- Social link -->
     <footer id="footer" class="footer light-background">
@@ -410,5 +214,8 @@
         </div>
       </footer> 
     </div>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+ 
+
     </body>
 </html>

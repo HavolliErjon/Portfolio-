@@ -59,12 +59,7 @@
   }
   
 
-  @media (max-width: 480px) {
-    body {
-        background-size: cover;
-        background-position: top center;
-    }
-}
+
   /*--------------------------------------------------------------
   # Global Header 
   --------------------------------------------------------------*/
@@ -113,13 +108,29 @@
     line-height: 0px;
   }
 
+  @media (max-width: 1200px) {
+    .header .logo {
+      order: 1;
+    }
+  
+    .header .header-social-links {
+      order: 2;
+    }
+  
+    .header .navmenu {
+      order: 3;
+    }
+  }
   
   /*--------------------------------------------------------------
   # Navigation Menu
   --------------------------------------------------------------*/
-  /* Desktop Navigation */
   @media (min-width: 1200px) {
+    #menu-toggle {
+      display: none; /* Nasconde il checkbox */
+    }
     .navmenu {
+      /* Il resto delle regole già presenti per .navmenu */
       padding: 0;
     }
   
@@ -191,6 +202,163 @@
     .navmenu .active:focus {
       color: var(--nav-hover-color);
     }
+  }
+
+
+
+    
+/* Mobile Navigation */
+@media (max-width: 1199px) {
+  /* Icona hamburger */
+  .mobile-nav-toggle {
+    color: var(--nav-color);
+    font-size: 30px; /* Cambia la dimensione dell'icona */
+    cursor: pointer;
+    transition: color 0.3s;
+    display: block;
+  }
+      /* Personalizzare l'icona dell'hamburger */
+.mobile-nav-toggle {
+  font-size: 30px; /* Cambia la dimensione dell'icona */
+  color: #333; /* Cambia il colore */
+}
+
+  .navmenu {
+    padding: 0;
+    z-index: 998;
+  }
+
+  .navmenu ul {
+    display: none;
+    list-style: none;
+    position: absolute;
+    inset: 60px 20px 20px 20px;
+    padding: 10px 0;
+    margin: 0;
+    border-radius: 6px;
+    background-color: var(--nav-mobile-background-color);
+    box-shadow: none;
+    overflow-y: auto;
+    transition: 0.3s;
+  }
+   /* Quando il checkbox è selezionato, mostra il menu */
+   .menu-toggle:checked + .mobile-nav-toggle + ul {
+    display: block; /* Mostra il menu */
+  }
+
+  .navmenu a,
+  .navmenu a:focus {
+    color: var(--nav-dropdown-color);
+    padding: 10px 20px;
+    font-family: var(--nav-font);
+    font-size: 17px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: no
+    wrap;
+    transition: 0.3s;
+  }
+
+  /* Ruotare l'icona dell'hamburger quando il menu è aperto */
+  .menu-toggle:checked + .mobile-nav-toggle i {
+    transform: rotate(90deg); /* Ruota l'icona per indicare che il menu è aperto */
+  }
+
+  /* Stile mobile nav active */
+  .mobile-nav-active {
+    overflow: hidden;
+  }
+
+  .mobile-nav-active .mobile-nav-toggle {
+    color: #fff;
+    position: absolute;
+    font-size: 32px;
+    top: 15px;
+    right: 15px;
+    margin-right: 0;
+    z-index: 9999;
+  }
+
+  .navmenu a i,
+  .navmenu a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: 0.3s;
+    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  }
+
+  .navmenu a i:hover,
+  .navmenu a:focus i:hover {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+  }
+
+  .navmenu a:hover,
+  .navmenu .active,
+  .navmenu .active:focus {
+    color: var(--nav-dropdown-hover-color);
+  }
+
+  .navmenu .active i,
+  .navmenu .active:focus i {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+    transform: rotate(180deg);
+  }
+
+  .navmenu .dropdown ul {
+    position: static;
+    display: none;
+    z-index: 99;
+    padding: 10px 0;
+    margin: 10px 20px;
+    background-color: var(--nav-dropdown-background-color);
+    transition: all 0.5s ease-in-out;
+  }
+
+  .navmenu .dropdown ul ul {
+    background-color: rgba(33, 37, 41, 0.1);
+  }
+
+  .navmenu .dropdown>.dropdown-active {
+    display: block;
+    background-color: rgba(33, 37, 41, 0.03);
+  }
+
+  .mobile-nav-active {
+    overflow: hidden;
+  }
+
+  .mobile-nav-active .mobile-nav-toggle {
+    color: #fff;
+    position: absolute;
+    font-size: 32px;
+    top: 15px;
+    right: 15px;
+    margin-right: 0;
+    z-index: 9999;
+  }
+
+  .mobile-nav-active .navmenu {
+    position: fixed;
+    inset: 0;
+    background: rgba(33, 37, 41, 0.8);
+    transition: 0.3s;
+  }
+
+  .mobile-nav-active .navmenu>ul {
+    display: block;
+  }
+}
 
   /*--------------------------------------------------------------
   # Sezione Principale
@@ -213,9 +381,9 @@
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* L'immagine all'interno dell'elemento <img> si adatta senza distorsioni */
-    z-index: 1; /* Posiziona l'immagine dietro il contenuto */
-    opacity: 0.6; /* Diminuisci l'opacità dell'immagine */
+    object-fit: cover; 
+    z-index: -1; 
+    opacity: 0.6; 
   }
   
   .chisono img {
@@ -263,36 +431,6 @@
   }
 
 
-  
-@media (max-width: 768px) {
-  .hero {
-    position: relative; /* Assicurati che il contenitore del testo sia posizionato relativamente */
-    z-index: 10; /* Porta il contenuto sopra l'immagine */
-  }
-
-  .hero h2 {
-    font-size: 28px;
-    position: relative; /* Posiziona il titolo rispetto al suo contenitore */
-    z-index: 20; /* Assicurati che il titolo sia sopra l'immagine */
-  }
-
-  .hero p {
-    font-size: 18px;
-    position: relative; /* Posiziona il testo rispetto al suo contenitore */
-    z-index: 20; /* Assicurati che il testo sia sopra l'immagine */
-  }
-
-  .hero img {
-    position: absolute; /* L'immagine sarà in background */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.6;
-    z-index: 1; /* Assicurati che l'immagine sia sotto il testo */
-  }
-}
 
   /*--------------------------------------------------------------
   # Global Sections
@@ -654,6 +792,7 @@
   color: red;
 }
 
+
  /*--------------------------------------------------------------
   # Footer
   --------------------------------------------------------------*/
@@ -701,6 +840,7 @@
       color: var(--accent-color);
       border-color: var(--accent-color);
     }
-  }
+  
+  
 
   
