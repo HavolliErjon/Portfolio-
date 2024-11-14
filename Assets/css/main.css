@@ -125,240 +125,204 @@
   /*--------------------------------------------------------------
   # Navigation Menu
   --------------------------------------------------------------*/
-  @media (min-width: 1200px) {
-    #menu-toggle {
-      display: none; /* Nasconde il checkbox */
-    }
+  #menu-toggle {
+    display: none; /* Nasconde il checkbox */
+}
+
+@media (min-width: 1200px) {
     .navmenu {
-      /* Il resto delle regole già presenti per .navmenu */
-      padding: 0;
+        padding: 0;
     }
-  
+
     .navmenu ul {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      list-style: none;
-      align-items: center;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        list-style: none;
+        align-items: center;
     }
-  
+
     .navmenu li {
-      position: relative;
+        position: relative;
     }
-  
+
     .navmenu>ul>li {
-      white-space: nowrap;
-      padding: 15px 14px;
+        white-space: nowrap;
+        padding: 15px 14px;
     }
-  
+
     .navmenu>ul>li:last-child {
-      padding-right: 0;
+        padding-right: 0;
     }
-  
+
     .navmenu a,
     .navmenu a:focus {
-      color: var(--nav-color);
-      font-size: 15px;
-      padding: 0 2px;
-      font-family: var(--nav-font);
-      font-weight: 400;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      white-space: nowrap;
-      transition: 0.3s;
-      position: relative;
+        color: var(--nav-color);
+        font-size: 15px;
+        padding: 0 2px;
+        font-family: var(--nav-font);
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        white-space: nowrap;
+        transition: 0.3s;
+        position: relative;
     }
-  
+
     .navmenu a i,
     .navmenu a:focus i {
-      font-size: 12px;
-      line-height: 0;
-      margin-left: 5px;
-      transition: 0.3s;
+        font-size: 12px;
+        line-height: 0;
+        margin-left: 5px;
+        transition: 0.3s;
     }
-  
+
     .navmenu>ul>li>a:before {
-      content: "";
-      position: absolute;
-      height: 2px;
-      bottom: -6px;
-      left: 0;
-      background-color: var(--nav-hover-color);
-      visibility: hidden;
-      width: 0px;
-      transition: all 0.3s ease-in-out 0s;
+        content: "";
+        position: absolute;
+        height: 2px;
+        bottom: -6px;
+        left: 0;
+        background-color: var(--nav-hover-color);
+        visibility: hidden;
+        width: 0px;
+        transition: all 0.3s ease-in-out 0s;
     }
-  
+
     .navmenu a:hover:before,
     .navmenu li:hover>a:before,
     .navmenu .active:before {
-      visibility: visible;
-      width: 25px;
+        visibility: visible;
+        width: 25px;
     }
-  
+
     .navmenu li:hover>a,
     .navmenu .active,
     .navmenu .active:focus {
-      color: var(--nav-hover-color);
+        color: var(--nav-hover-color);
     }
-  }
+}
 
-
-
-    
-/* Mobile Navigation */
+/* Mobile Navigation (<= 1199px) */
 @media (max-width: 1199px) {
-  /* Icona hamburger */
-  .mobile-nav-toggle {
-    color: var(--nav-color);
-    font-size: 30px; /* Cambia la dimensione dell'icona */
-    cursor: pointer;
-    transition: color 0.3s;
-    display: block;
-  }
-      /* Personalizzare l'icona dell'hamburger */
-.mobile-nav-toggle {
-  font-size: 30px; /* Cambia la dimensione dell'icona */
-  color: #333; /* Cambia il colore */
+
+    /* Icona hamburger */
+    .mobile-nav-toggle {
+        cursor: pointer;
+        display: block;
+        width: 40px; /* Larghezza dell'icona hamburger */
+        height: 30px; /* Altezza dell'icona hamburger */
+        position: relative;
+        z-index: 100;
+    }
+
+    .mobile-nav-toggle i {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 30px;
+        height: 3px;
+        background-color: var(--nav-color); /* Colore delle linee */
+        transition: 0.3s;
+        border-radius: 5px;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Le linee sopra e sotto */
+    .mobile-nav-toggle i:before,
+    .mobile-nav-toggle i:after {
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 3px;
+        background-color: var(--nav-color);
+        transition: 0.3s;
+        border-radius: 5px;
+    }
+
+    /* Posizioni della prima e della terza linea */
+    .mobile-nav-toggle i:before {
+        top: -8px;
+    }
+
+    .mobile-nav-toggle i:after {
+        bottom: -8px;
+    }
+
+    /* Ruotare l'icona hamburger quando il menu è aperto */
+    .menu-toggle:checked + .mobile-nav-toggle i {
+        background-color: transparent; /* Nasconde la linea centrale */
+    }
+
+    .menu-toggle:checked + .mobile-nav-toggle i:before {
+        transform: translateY(8px) rotate(45deg); /* Ruota la prima linea */
+    }
+
+    .menu-toggle:checked + .mobile-nav-toggle i:after {
+        transform: translateY(-8px) rotate(-45deg); /* Ruota la terza linea */
+    }
+
+    /* Personalizzare il menu mobile */
+    .navmenu {
+        padding: 0;
+        z-index: 998;
+    }
+
+    .navmenu ul {
+        display: none; /* Menu nascosto di default */
+        list-style: none;
+        position: absolute;
+        inset: 10px 20px 20px 20px;
+        padding: 10px 0;
+        margin: 0;
+        border-radius: 6px;
+        background-color: transparent; /* Rimuovi il bianco */
+        box-shadow: none;
+        overflow-y: auto;
+        transition: 0.3s;
+    }
+
+    /* Quando il checkbox è selezionato, mostra il menu */
+    .menu-toggle:checked + .mobile-nav-toggle + ul {
+        display: block; /* Mostra il menu */
+        position: relative; /* Posiziona il menu correttamente */
+        background-color: transparent; /* Rimuove il bianco e mantiene lo sfondo trasparente */
+        box-shadow: none; /* Rimuovi l'ombra */
+    }
+
+    /* Stili per i link del menu mobile */
+    .navmenu a,
+    .navmenu a:focus {
+        color: var(--nav-dropdown-color);
+        padding: 10px 20px;
+        font-family: var(--nav-font);
+        font-size: 17px;
+        font-weight: 500;
+        display: block;
+        text-align: left; /* Allinea i link a sinistra */
+        white-space: nowrap;
+        transition: 0.3s;
+    }
+
+    /* Cambia il colore al passaggio del mouse */
+    .navmenu li:hover > a {
+        color: var(--nav-hover-color);
+    }
+
+    /* Ruotare l'icona hamburger quando il menu è aperto */
+    .menu-toggle:checked + .mobile-nav-toggle i {
+        transform: rotate(90deg); /* Ruota l'icona per indicare che il menu è aperto */
+    }
+
+    /* Opzionale: rimuovere il margine e padding sul menu */
+    .navmenu ul li {
+        padding: 0;
+        margin: 0;
+    }
 }
 
-  .navmenu {
-    padding: 0;
-    z-index: 998;
-  }
 
-  .navmenu ul {
-    display: none;
-    list-style: none;
-    position: absolute;
-    inset: 60px 20px 20px 20px;
-    padding: 10px 0;
-    margin: 0;
-    border-radius: 6px;
-    background-color: var(--nav-mobile-background-color);
-    box-shadow: none;
-    overflow-y: auto;
-    transition: 0.3s;
-  }
-   /* Quando il checkbox è selezionato, mostra il menu */
-   .menu-toggle:checked + .mobile-nav-toggle + ul {
-    display: block; /* Mostra il menu */
-  }
-
-  .navmenu a,
-  .navmenu a:focus {
-    color: var(--nav-dropdown-color);
-    padding: 10px 20px;
-    font-family: var(--nav-font);
-    font-size: 17px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    white-space: no
-    wrap;
-    transition: 0.3s;
-  }
-
-  /* Ruotare l'icona dell'hamburger quando il menu è aperto */
-  .menu-toggle:checked + .mobile-nav-toggle i {
-    transform: rotate(90deg); /* Ruota l'icona per indicare che il menu è aperto */
-  }
-
-  /* Stile mobile nav active */
-  .mobile-nav-active {
-    overflow: hidden;
-  }
-
-  .mobile-nav-active .mobile-nav-toggle {
-    color: #fff;
-    position: absolute;
-    font-size: 32px;
-    top: 15px;
-    right: 15px;
-    margin-right: 0;
-    z-index: 9999;
-  }
-
-  .navmenu a i,
-  .navmenu a:focus i {
-    font-size: 12px;
-    line-height: 0;
-    margin-left: 5px;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: 0.3s;
-    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
-  }
-
-  .navmenu a i:hover,
-  .navmenu a:focus i:hover {
-    background-color: var(--accent-color);
-    color: var(--contrast-color);
-  }
-
-  .navmenu a:hover,
-  .navmenu .active,
-  .navmenu .active:focus {
-    color: var(--nav-dropdown-hover-color);
-  }
-
-  .navmenu .active i,
-  .navmenu .active:focus i {
-    background-color: var(--accent-color);
-    color: var(--contrast-color);
-    transform: rotate(180deg);
-  }
-
-  .navmenu .dropdown ul {
-    position: static;
-    display: none;
-    z-index: 99;
-    padding: 10px 0;
-    margin: 10px 20px;
-    background-color: var(--nav-dropdown-background-color);
-    transition: all 0.5s ease-in-out;
-  }
-
-  .navmenu .dropdown ul ul {
-    background-color: rgba(33, 37, 41, 0.1);
-  }
-
-  .navmenu .dropdown>.dropdown-active {
-    display: block;
-    background-color: rgba(33, 37, 41, 0.03);
-  }
-
-  .mobile-nav-active {
-    overflow: hidden;
-  }
-
-  .mobile-nav-active .mobile-nav-toggle {
-    color: #fff;
-    position: absolute;
-    font-size: 32px;
-    top: 15px;
-    right: 15px;
-    margin-right: 0;
-    z-index: 9999;
-  }
-
-  .mobile-nav-active .navmenu {
-    position: fixed;
-    inset: 0;
-    background: rgba(33, 37, 41, 0.8);
-    transition: 0.3s;
-  }
-
-  .mobile-nav-active .navmenu>ul {
-    display: block;
-  }
-}
 
   /*--------------------------------------------------------------
   # Sezione Principale
