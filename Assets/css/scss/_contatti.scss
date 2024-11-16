@@ -1,0 +1,66 @@
+#contatti {
+  margin-bottom: 10px;
+
+  h2 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: $default-color;
+    margin-bottom: 40px;
+  }
+
+  .php-email-form {
+    background-color: $surface-color;
+    height: 100%;
+    padding: 30px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      font-size: 14px;
+      padding: 10px 15px;
+      box-shadow: none;
+      border-radius: 0;
+      color: $default-color;
+      background-color: $contrast-color;
+      border-color: color-mix(in srgb, $default-color, transparent 80%);
+
+      &:focus {
+        border-color: $accent-color;
+      }
+
+      &::placeholder {
+        color: color-mix(in srgb, $default-color, transparent 70%);
+      }
+    }
+
+    button[type="submit"] {
+      color: $contrast-color;
+      background: $accent-color;
+      border: 0;
+      padding: 10px 30px;
+      transition: 0.4s;
+      border-radius: 50px;
+      margin-bottom: 40px;
+
+      &:hover {
+        background: color-mix(in srgb, $accent-color, transparent 25%);
+      }
+    }
+
+    .loading,
+    .sent-message,
+    .error-message {
+      display: none;
+    }
+
+    .sent-message {
+      color: green;
+    }
+
+    .error-message {
+      color: red;
+    }
+  }
+}

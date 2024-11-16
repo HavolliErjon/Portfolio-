@@ -1,0 +1,22 @@
+
+body {
+  color: $default-color;
+  background: linear-gradient(to bottom, $background-color2, #FFFFFF);
+  font-family: $default-font;
+}
+
+a {
+  color: $accent-color;
+  text-decoration: none;
+  transition: 0.3s;
+
+  &:hover {
+    color: color-mix(in srgb, $accent-color, transparent 25%);
+    text-decoration: none;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $heading-color;
+  font-family: $heading-font;
+}
